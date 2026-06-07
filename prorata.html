@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="styles.css" rel="stylesheet">
+<title>Handy BNH Calculators</title>
+
+<script>
+function calculate() {
+
+//    var start = new Date(document.getElementById("startdate").value);
+//    var end = new Date(document.getElementById("enddate").value);
+//    var dateDiff = 1 + (end - start)/86400000;
+
+//    document.getElementById("proRated").innerHTML = Math.ceil(withMinimum);
+
+    const totalWeeks = Number(document.getElementById("dWeeks").value);
+    const defaultFee = Number(document.getElementById("dFee").value);
+    const attendWeeks = Number(document.getElementById("tWeeks").value);
+
+    const proRata = defaultFee * attendWeeks / totalWeeks;
+    const withMinimum = Math.max(defaultFee / 2, proRata);
+    document.getElementById("proRated").innerHTML = Math.ceil(withMinimum);
+}
+</script>
+</head>
+
+<body>
+		<div class="container">
+			<div class="header">
+				<h1 class="header-heading">Handy BNH Calculators</h1>
+                       </div>
+			<div class="nav-bar">
+				<ul class="nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="prorata.html">Prorata</a></li>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="main">
+<h1>Prorata Calculator</h1>
+<p>Calculates the prorated fee, taking into account the policy of 50% minimum prorata.</p>
+
+<!-- the form -->
+<table>
+  <tr>
+    <td style="text-align: right">Default number of weeks:</td>
+    <td><input type="number" id="dWeeks" /></td>
+  </tr>
+  <tr>
+    <td style="text-align: right">Default fee:</td>
+    <td><input type="number" id="dFee" /></td>
+  </tr>
+  <tr>
+    <td style="text-align: right">Target number of weeks:</td>
+    <td><input type="number" id="tWeeks" /></td>
+  </tr>
+</table>
+<!-- the input button -->
+<p>
+<input type="button" value="Calculate Prorata" onclick="calculate()" />
+</p>
+<!-- the results -->
+
+<div id="proRated"></div>
+
+
+                                </div>
+                        </div>
+
+
+			<div class="footer">
+                        <p>Handy BNH Calculators by <a href="https://github.com/dmudigdo" target="_new">Didi Mudigdo</a> | CSS design courtesy of <a href="http://css.maxdesign.com.au/#layouts" target="_new">Max Design</a></p>
+                        </div>
+                </div>
+</body>
+</html>
